@@ -29,8 +29,8 @@ include_once __DIR__ . '/../../includes/db_connect.php';
 </head>
 
 <body>
-    <div class="container-fluid my-3 m-auto w-100">
-        <h2 class="text-center py-3">Đăng nhập thành viên</h2>
+    <div class="container-fluid my-3 m-auto w-50 py-2 border">
+        <h2 class="text-center py-3 text-primary">Đăng nhập thành viên</h2>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
@@ -38,14 +38,14 @@ include_once __DIR__ . '/../../includes/db_connect.php';
                         <!-- username field -->
                         <input type="text" class="form-control" id="user_username" placeholder="Nập vào tên"
                             autocomplete="off" required="required" name="user_username">
-                        <label for="user_username" class="form-label">Tên</label>
+                        <label for="user_username" class="form-label"><i class="fa-regular fa-user"></i> Tên</label>
 
                     </div>
                     <div class="form-floating mb-4">
                         <!-- password field -->
                         <input type="password" class="form-control" id="user_password" placeholder="Nhập vào mật khẩu"
                             autocomplete="off" required="required" name="user_password">
-                        <label for="user_password" class="form-label">Mật khẩu</label>
+                        <label for="user_password" class="form-label"><i class="fa-regular fa-eye"></i> Mật khẩu</label>
 
                     </div>
                     <input class="mt-4 btn btn-info mb-6 px-3" type="submit" name="user_login" id="user_login"
