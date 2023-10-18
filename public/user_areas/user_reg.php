@@ -50,11 +50,11 @@
 
 <body>
 
-    <form class="w-75 mt-3 border border-2 m-auto reg_form" action="" method="post" enctype="multipart/form-data">
+    <form class="w-50 mt-3 border border-2 m-auto reg_form" action="" method="post" enctype="multipart/form-data">
         <h1 class="text-center text-primary py-3">Đăng ký thành viên mới</h1>
-        <div class="row px-3">
-            <img class="col-lg-6 col-md-5" src="../images/reg_image.svg" alt="">
-            <div class="col-lg-6 col-md-7 w-50">
+        <div class="row">
+            <!-- <img class="col-lg-6 col-md-5" src="../images/reg_image.svg" alt=""> -->
+            <div class="offset-3 w-50">
                 <!-- username -->
                 <div class="input-group has-validation">
                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
