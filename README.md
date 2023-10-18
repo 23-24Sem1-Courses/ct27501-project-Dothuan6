@@ -2,15 +2,14 @@
 
 Học kỳ 1, Năm học 2023-2024
 
-**MSSV 1** : 
+**MSSV 1** : B2014710
 
-**Họ tên SV 1**:
+**Họ tên SV 1**: Lê Thị Huyền Trân
 
-**MSSV 2**:
+**MSSV 2**: B2014705
 
-**Họ tên SV 2**:
+**Họ tên SV 2**: Đỗ Văn Thuận
 
-**Lớp học phần**:
+**Lớp học phần**: Ct275
 
-**Tên dự án**:
-
+**Tên dự án**: Website trực tuyến bán xe hơi Mecedes
