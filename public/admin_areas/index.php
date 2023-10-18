@@ -152,11 +152,6 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php?view_products">
-                    <span><i class="fa-solid fa-clipboard-list"></i>XEM SẢN PHẨM</span></a>
-            </li>
-            <hr class="sidebar-divider">
-            <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_orders">
                     <span><i class="fa-solid fa-table-list"></i> ĐƠN HÀNG</span></a>
             </li>
