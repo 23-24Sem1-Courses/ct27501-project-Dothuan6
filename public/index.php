@@ -10,6 +10,7 @@ session_start();
     <title>Trang Chủ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -61,27 +62,36 @@ session_start();
                             aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                             aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="../images/slider1.jpg" class="d-block w-100" alt="ảnh">
+                    <div class="carousel-inner" style="border-radius:2px;">
+                        <div class=" carousel-item active">
+                            <img src="images/slider1.jpg" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="../images/slider2.webp" class="d-block w-100" alt="ảnh">
+                            <img src="images/slider2.webp" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Second slide label</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="../images/slide3.pngs" class="d-block w-100" alt="ảnh">
+                            <img src="images/slider1.jpg" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Third slide label</h5>
                                 <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/slider2.webp" class="d-block w-100 img_slide" alt="ảnh">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
                             </div>
                         </div>
                     </div>
@@ -97,6 +107,141 @@ session_start();
                     </button>
                 </div>
             </div>
+        </div>
+        <div class="container">
+            <section class="product-section mt-3">
+                <div class="section-heading py-2">
+                    <h3 class="heading px-5">MERCEDES GLC 2023
+                        <hr>
+                    </h3>
+                    <div class="row px-5">
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/GLC_Mec1.png" class="card-img-top img btn" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/GLC_mec2.jpg" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
+
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/GLC_mec3.jpg" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
+
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/GLC_mec3.jpg" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
+
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="product-section mt-3">
+                <div class="section-heading py-5">
+                    <h3 class="heading px-5">MERCEDES C-CLASS
+                        <hr>
+                    </h3>
+                    <div class="row px-5">
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/Class_mec1.png" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - Class</p>
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/Class_mec2.png" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - Class</p>
+
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/Class_mec3.png" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLASS</p>
+
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="product-section mt-3">
+                <div class="section-heading py-5">
+                    <h3 class="heading px-5">MERCEDES MAYBACH
+                        <hr>
+                    </h3>
+                    <div class="row px-5">
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/Maybach_mec1.jpg" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - MAYBACH</p>
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/Maybach_mec2.jpg" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - MAYBACH</p>
+
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0" style="width: 19rem;">
+                                <img src="images/Mayabach_mec3.jpg" class="card-img-top btn img" alt="...">
+                                <div class="card-body mt-1">
+                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - MAYBACH</p>
+
+                                </div>
+                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </div>
 
 
