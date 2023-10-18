@@ -62,12 +62,22 @@
             <ul class="navbar-nav text-center" style="height: 100vh;">
                 <li class="nav-item">
                     <a href="#" class="nav-link text-light mt-3">
-                        <h4><?php echo $_SESSION['username'] ?></h4>
+                        <h4>
+                            <?php
+                            if((isset($_SESSION['username']))){
+                                echo $_SESSION['username'];
+                                }else{
+                                    echo "Tai Khoan";
+                                }
+                             ?></h4>
                     </a>
                 </li>
 
                 <?php
-      $username=$_SESSION['username'];
+        if(isset($_SESSION['username'])){
+            $username=$_SESSION['username'];
+
+        }
       $sql="select * from `users` where user_name = ?";
       $stmt = $conn->prepare($sql);
     //   $stmt->bindParam("user_name",$username,PDO::PARAM_STR);
