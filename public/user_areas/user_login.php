@@ -63,9 +63,9 @@ include_once __DIR__ . '/../../includes/db_connect.php';
 <?php
 if(isset($_POST['user_login'])){
     global $conn;
-    $user_username = $_POST['user_username'];
-    $user_usermail = $_POST['user_username'];
-    $user_password = $_POST['user_password'];
+    $user_username = htmlspecialchars($_POST['user_username']);
+    $user_usermail = htmlspecialchars($_POST['user_username']);
+    $user_password = htmlspecialchars($_POST['user_password']);
     $select_query="select * from `users` where user_name=?";
     $stmt = $conn->prepare($select_query);
     $stmt->execute([$user_username]);
@@ -78,14 +78,14 @@ if(isset($_POST['user_login'])){
     // $select_cart = mysqli_query($con,$select_query_cart);
     // $row_count_cart = mysqli_num_rows($select_cart);
     if($row_count>0){
-        $_SESSION['username'] = $user_username;
+        $_SESSION['username'] = htmlspecialchars($user_username);
         if(password_verify($user_password,$row_data['user_password'])){
             if($row_count==1){
-                $_SESSION['username'] = $user_username;
+                $_SESSION['username'] = htmlspecialchars($user_username);
                 echo "<script>alert('Đăng nhập thành công!')</script>";
                 echo "<script>window.open('user_profile.php','_self')</script>";
             }else{
-                $_SESSION['username'] = $user_username;
+                $_SESSION['username'] = htmlspecialchars($user_username);
                 echo "<script>alert('Đăng nhập thành công')</script>";
                 echo "<script>window.open('user_profile.php','_self')</script>";
         }
