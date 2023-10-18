@@ -49,9 +49,9 @@ session_start();
         </nav>
         <!--  -->
         <div class="row">
-            <h2 class="text-center">
+            <h1 class="text-center">
                 2TShop-CAR
-            </h2>
+            </h1>
             <!-- slider -->
             <div>
                 <div id="carouselExampleCaptions" class="carousel slide">
@@ -69,29 +69,36 @@ session_start();
                         <div class=" carousel-item active">
                             <img src="images/slider1.jpg" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                                <h5>MECEDES BEN</h5>
+                                <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
+                                    tiết </a>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="images/slider2.webp" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+                                <h5>SMECEDES BEN</h5>
+                                <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
+                                    tiết </a>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="images/slider1.jpg" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
+                                <h5>MECEDES BEN</h5>
+                                <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
+                                    tiết </a>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="images/slider2.webp" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+                                <h5>SMECEDES BEN</h5>
+                                <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
+                                    tiết </a>
+
                             </div>
                         </div>
                     </div>
@@ -137,7 +144,8 @@ session_start();
                         </div>
                         <div class="col-md-4">
                             <div class="card border-0" style="width: 19rem;">
-                                <img src="images/GLC_mec3.jpg" class="card-img-top btn img" alt="...">
+                                <a href="product_details.php"><img src="images/GLC_mec3.jpg"
+                                        class="card-img-top btn img" alt="..."></a>
                                 <div class="card-body mt-1">
                                     <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
 
@@ -148,7 +156,8 @@ session_start();
                         </div>
                         <div class="col-md-4">
                             <div class="card border-0" style="width: 19rem;">
-                                <img src="images/GLC_mec3.jpg" class="card-img-top btn img" alt="...">
+                                <a href="product_details.php"><img src="images/GLC_mec3.jpg"
+                                        class="card-img-top btn img" alt="..."></a>
                                 <div class="card-body mt-1">
                                     <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
 
