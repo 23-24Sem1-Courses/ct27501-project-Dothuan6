@@ -155,16 +155,6 @@
                 <a class="nav-link" href="index.php?view_products">
                     <span><i class="fa-solid fa-clipboard-list"></i>XEM SẢN PHẨM</span></a>
             </li>
-            <!-- <hr class="sidebar-divider">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?view_categories">
-                    <span>XEM DANH MỤC</span></a>
-            </li> -->
-            <!-- <hr class="sidebar-divider">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?view_brands">
-                    <span>XEM NHÃN HÀNG</span></a>
-            </li> -->
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_orders">
@@ -235,21 +225,9 @@
                     if(isset($_SESSION['admin_name'])){
   if(isset($_GET['insert_categories'])){
     include('insert_categories.php');
-    include_once('view_category.php');
-  }
-  if(isset($_GET['insert_brands'])){
-    include('insert_brands.php');
-    include_once('view_brand.php');
   }
   if(isset($_GET['insert_products'])){
     include('insert_products.php');
-  }
-  if(isset($_GET['view_products'])){
-    include('view_products.php');
-  }if(isset($_GET['view_brands'])){
-    include('view_brand.php');
-  }if(isset($_GET['view_categories'])){
-    include('view_category.php');
   }if(isset($_GET['view_orders'])){
     include('view_order.php');
   }if(isset($_GET['view_payments'])){
@@ -261,11 +239,6 @@
     include('edit_category.php');
   }if(isset($_GET['edit_products'])){
     include('edit_products.php');
-  }
-  if(isset($_GET['edit_brand'])){
-    include('edit_brand.php');
-  }if(isset($_GET['delete_brand'])){
-    include('delete_brand.php');
   }if(isset($_GET['delete_category'])){
     include('delete_category.php');
   }if(isset($_GET['delete_products'])){
@@ -279,9 +252,6 @@
   }
   if(isset($_GET['delete_users'])){
     include('delete_user.php');
-  }
-  if(isset($_GET['statistics'])){
-    include('statistics.php');
   }
 }else{
   echo "<div class='row'>
