@@ -14,7 +14,7 @@ include_once __DIR__ . '/../../../includes/header.php';
                     <a class="nav-link active" aria-current="page" href="./../../index.php">Trang Chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sản Phẩm</a>
+                    <a class="nav-link" href="./../../all_products.php">Sản Phẩm</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
