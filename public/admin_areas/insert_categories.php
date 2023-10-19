@@ -15,7 +15,6 @@
         }else{
             $insert_query="insert into `categories` (category_title) value(?)";
             $stmt = $conn->prepare($insert_query);
-            // $stmt->execute([$category_title]);
             $result = $stmt->execute([$category_title]);
             if($result){
                 echo"<script>alert('Danh mục đã được thêm thành công!')</script>";
@@ -26,7 +25,7 @@
 ?>
 
 
-<h2 class="text-center">Thêm Danh Mục</h2>
+<h2 class="text-center text-primary">Thêm Danh Mục</h2>
 <form action="" method="post" class="mb-2">
     <div class="input-group mb-2 text-center w-50">
         <span class="input-group-text bg-info" id="basic-addon1"><i class="fa-solid fa-receipt"></i></span>
@@ -34,18 +33,19 @@
             aria-label="Username" aria-describedby="basic-addon1">
     </div>
     <div class="input-group mb-2 m-auto">
-        <input type="submit" class="bg-info p-2 my-3 border-0 shadow" name="insert_cat" value="Thêm vào kho">
+        <input type="submit" class="bg-warning text-dark p-2 my-3 border-0 shadow" name="insert_cat"
+            value="Thêm vào kho">
         <!-- <button class="bg-info p-2 my-3 border-0">Insert Categories</button> -->
     </div>
 </form>
-<h3 class="text-center text-dark py-2">Tất Cả Danh Mục</h3>
+<h3 class="text-center text-primary py-2">Tất Cả Danh Mục</h3>
 <table class="table table-bordered mt-5 text-center shadow">
     <thead>
         <tr>
-            <th class="bg-info">STT</th>
-            <th class="bg-info">Tên Danh Mục</th>
-            <th class="bg-info">Chỉnh Sửa</th>
-            <th class="bg-info">Xóa</th>
+            <th class="bg-dark text-white">STT</th>
+            <th class="bg-dark text-white">Tên Danh Mục</th>
+            <th class="bg-dark text-white">Chỉnh Sửa</th>
+            <th class="bg-dark text-white">Xóa</th>
         </tr>
     </thead>
     <tbody>
