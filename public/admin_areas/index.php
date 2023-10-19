@@ -152,16 +152,6 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php?view_orders">
-                    <span><i class="fa-solid fa-table-list"></i> ĐƠN HÀNG</span></a>
-            </li>
-            <hr class="sidebar-divider">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?view_payments">
-                    <span><i class="fa-solid fa-credit-card"></i> THANH TOÁN</span></a>
-            </li>
-            <hr class="sidebar-divider">
-            <li class="nav-item active">
                 <a class="nav-link" href="index.php?view_users">
                     <span><i class="fa-solid fa-user"></i> KHÁCH HÀNG</span></a>
             </li>
@@ -223,30 +213,20 @@
   }
   if(isset($_GET['insert_products'])){
     include('insert_products.php');
-  }if(isset($_GET['view_orders'])){
-    include('view_order.php');
-  }if(isset($_GET['view_payments'])){
-    include('view_payment.php');
   }if(isset($_GET['view_users'])){
-    include('view_user.php');
+    include('view_users.php');
   }
   if(isset($_GET['edit_category'])){
-    include('edit_category.php');
+    include('edit_categories.php');
   }if(isset($_GET['edit_products'])){
     include('edit_products.php');
   }if(isset($_GET['delete_category'])){
-    include('delete_category.php');
+    include('delete_categories.php');
   }if(isset($_GET['delete_products'])){
-    include('delete_product.php');
-  }
-  if(isset($_GET['delete_orders'])){
-    include('delete_order.php');
-  }
-  if(isset($_GET['delete_payments'])){
-    include('delete_payment.php');
+    include('delete_products.php');
   }
   if(isset($_GET['delete_users'])){
-    include('delete_user.php');
+    include('delete_users.php');
   }
 }else{
   echo "<div class='row'>
