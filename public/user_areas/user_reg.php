@@ -145,13 +145,13 @@
 
     if(isset($_POST['Register'])){
         global $conn;
-        $user_username = $_POST['user_username'];
-        $email = $_POST['user_email'];
-        $user_password = $_POST['user_password'];
+        $user_username = htmlspecialchars($_POST['user_username']);
+        $email = htmlspecialchars($_POST['user_email']);
+        $user_password = htmlspecialchars($_POST['user_password']);
         $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
-        $conf_user_password= $_POST['conf_user_password'];
-        $user_address = $_POST['user_address'];
-        $user_phone = $_POST['user_phone'];
+        $conf_user_password= htmlspecialchars($_POST['conf_user_password']);
+        $user_address = htmlspecialchars($_POST['user_address']);
+        $user_phone = htmlspecialchars($_POST['user_phone']);
 
     //select_query
     $select_query = "select * from `users` where user_name= ? or user_email= ? ";
