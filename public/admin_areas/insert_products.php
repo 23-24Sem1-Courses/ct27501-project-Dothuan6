@@ -7,14 +7,14 @@
         <form action="" method="post" enctype="multipart/form-data">
             <!--product title -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_title" class="form-label">Tên sản phẩm</label>
+                <label for="product_title" class="form-label text-warning">Tên sản phẩm</label>
                 <input type="text" name="product_title" id="product_title" class="form-control"
                     placeholder="Nhập vào tên sản phẩm..." autocomplete="off" required="required">
             </div>
             <!-- Keywords -->
 
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_keywords" class="form-label mt-2">Từ khóa</label>
+                <label for="product_keywords" class="form-label mt-2 text-warning">Từ khóa</label>
                 <input type="text" name="product_keywords" id="product_keywords" class="form-control"
                     placeholder="Nhập vào từ khóa..." autocomplete="off" required="required">
             </div>
@@ -22,7 +22,7 @@
             <!-- categories  -->
             <div class="py-2 mt-2">
                 <div class="form-outline mb-4 w-50 m-auto">
-                    <select name="product_category" id="" class="form-select">
+                    <select name="product_category" id="" class="form-select text-warning">
                         <option value="">Chọn danh mục</option>
                         <?php
                         global $conn;
@@ -43,13 +43,13 @@
         <!-- image 1 -->
         <div class="py-2">
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_image1" class="form-label">Ảnh 1</label>
+                <label for="product_image1" class="form-label text-warning">Ảnh 1</label>
                 <input type="file" name="product_image1" id="product_image1" class="form-control" quired="required">
             </div>
         </div>
         <!-- Price -->
         <div class="form-outline mb-4 w-50 m-auto">
-            <label for="product_price" class="form-label">Giá tiền</label>
+            <label for="product_price" class="form-label text-warning">Giá tiền</label>
             <input type="text" name="product_price" id="product_price" class="form-control"
                 placeholder="Nhập vào giá tiền..." autocomplete="off" required="required">
         </div>
@@ -57,7 +57,8 @@
         <!-- submit -->
         <div class="py-3 text-center">
             <div class="form-outline mb-4 w-50 m-auto">
-                <input type="submit" name="insert_product" class="btn btn-info mb-3 px-3" value="Thêm sản phẩm">
+                <input type="submit" name="insert_product" class="btn mb-3 px-3 bg-warning text-white"
+                    value="Thêm sản phẩm">
             </div>
         </div>
         </form>
@@ -65,9 +66,9 @@
 </div>
 <?php
     if(isset($_POST['insert_product'])){
-        $product_title = $_POST['product_title'];
-        $product_keywords = $_POST['product_keywords'];
-        $product_category= $_POST['product_category'];
+        $product_title = htmlspecialchars($_POST['product_title']);
+        $product_keywords = htmlspecialchars($_POST['product_keywords']);
+        $product_category= htmlspecialchars($_POST['product_category']);
         $product_price = number_format($_POST['product_price']);
         $product_status = 'true';
         
@@ -111,14 +112,12 @@
 <table class="table table-bordered mt-5 text-center">
     <thead>
         <tr>
-            <th class="bg-info">STT</th>
-            <th class="bg-info">Tên Sản Phẩm</th>
-            <th class="bg-info">Hình Ảnh</th>
-            <th class="bg-info">Giá</th>
-            <!-- <th class="bg-info">Số Lượng Bán</th> -->
-            <!-- <th class="bg-info">Trạng Thái</th> -->
-            <th class="bg-info">Chỉnh Sửa</th>
-            <th class="bg-info">Xóa</th>
+            <th class="bg-dark text-white">STT</th>
+            <th class="bg-dark text-white">Tên Sản Phẩm</th>
+            <th class="bg-dark text-white">Hình Ảnh</th>
+            <th class="bg-dark text-white">Giá</th>
+            <th class="bg-dark text-white">Chỉnh Sửa</th>
+            <th class="bg-dark text-white">Xóa</th>
         </tr>
     </thead>
     <tbody>
@@ -134,10 +133,6 @@
             $product_title=$row['product_title'];
             $product_image1=$row['product_image1'];
             $product_price=$row['product_price'];
-            // $product_status=$row['status'];
-            // if($row['status']=='true'){
-            //   $product_status ='Còn hàng';
-            // }
             $number++;
             ?>
         <tr>
