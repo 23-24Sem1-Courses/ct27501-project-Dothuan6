@@ -75,9 +75,9 @@ global $conn;
 <?php
     if(isset($_POST['edit_product'])){
 
-        $product_title = $_POST['product_title'];
-        $product_keywords = $_POST['product_keywords'];
-        $product_category= $_POST['product_category'];
+        $product_title = htmlspecialchars($_POST['product_title']);
+        $product_keywords = htmlspecialchars($_POST['product_keywords']);
+        $product_category= htmlspecialchars($_POST['product_category']);
         $product_price = number_format($_POST['product_price']);
         
         //accessing images
