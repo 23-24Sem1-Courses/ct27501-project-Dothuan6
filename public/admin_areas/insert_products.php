@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__ . '/../../functions/commonfunction.php'; 
+?>
+
 <div class="row">
     <h1 class="text-center text-primary">THÊM SẢN PHẨM</h1>
     <div class="col-md-6 col-sm col-lg-6 mt-4">
@@ -65,48 +69,8 @@
     </div>
 </div>
 <?php
-    if(isset($_POST['insert_product'])){
-        $product_title = htmlspecialchars($_POST['product_title']);
-        $product_keywords = htmlspecialchars($_POST['product_keywords']);
-        $product_category= htmlspecialchars($_POST['product_category']);
-        $product_price = number_format($_POST['product_price']);
-        $product_status = 'true';
-        
-        //accessing images
-        $product_image1 = $_FILES['product_image1']['name'];
-    
-        //accessing image tmp name
-        $temp_image1 = $_FILES['product_image1']['tmp_name'];
-      // check product exist
-      $select_products = "select * from `products` where product_title = ?";
-      $stmt=$conn->prepare($select_products);
-      $stmt->execute([$product_title]);
-      $row_products=$stmt->rowCount(); 
-      if($row_products==0){
-        //checking empty
-        if(empty($product_title) or empty($product_keywords) or 
-        empty($product_category) or empty($product_price) or
-        empty($product_image1)){
-            echo "<script>alert('Please fill all the available fields')</script>";
-            exit();
-        }else{
-            move_uploaded_file($temp_image1,"./product_images/$product_image1");
-            //insert query
-            $insert_products = "insert into `products` (product_title,
-            product_keywords,category_id,product_image1,product_price) values (?,?,?,?,?)";
-             $stmt = $conn ->prepare($insert_products);
-            $result_query =  $stmt->execute([$product_title,$product_keywords,$product_category,$product_image1,$product_price]);
-            if($result_query){  
-                echo "<script>alert('Thêm sản phẩm thành công!')</script>";
-                echo "<script>window.open('./index.php?view_products','self')</script>";
-
-            }
-        }
-    }else{
-        echo "<script>alert('Sản phẩm đã tồn tại!!')</script>";
-    }
-}
-    ?>
+     insertProducts();
+?>
 
 <h3 class="text-center text-primary">TẤT CẢ SẢN PHẨM</h3>
 <table class="table table-bordered mt-5 text-center">
