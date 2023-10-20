@@ -1,30 +1,9 @@
 <?php
     include_once __DIR__ . '/../../includes/db_connect.php';
+    include_once __DIR__ . '/../../functions/commonfunction.php';
     global $conn;
-    if(isset($_POST["insert_cat"])){
-        $category_title=htmlspecialchars($_POST["cat_title"]);
-
-        //select data from database
-        $select_query = "select * from `categories` where category_title= ?";
-        $stmt =  $conn->prepare($select_query);
-        $stmt->execute([$category_title]);
-        $numver = $stmt->rowCount();
-        if($numver>0){
-            echo "<script>alert('Danh mục này đã có trong kho')</script>";
-
-        }else{
-            $insert_query="insert into `categories` (category_title) value(?)";
-            $stmt = $conn->prepare($insert_query);
-            $result = $stmt->execute([$category_title]);
-            if($result){
-                echo"<script>alert('Danh mục đã được thêm thành công!')</script>";
-        }
-
-        }
-    }
+    insertCategories();
 ?>
-
-
 <h2 class="text-center text-primary">Thêm Danh Mục</h2>
 <form action="" method="post" class="mb-2">
     <div class="input-group mb-2 text-center w-50">
