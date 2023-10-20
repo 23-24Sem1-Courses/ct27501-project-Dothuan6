@@ -1,6 +1,6 @@
 <?php
   include_once __DIR__ . '/../../includes/db_connect.php';
-//   include_once('../functions/common_function.php');
+  include_once __DIR__. '/../../functions/commonfunction.php';
   @session_start();
 ?>
 <!DOCTYPE html>
@@ -221,12 +221,12 @@
   }if(isset($_GET['edit_products'])){
     include('edit_products.php');
   }if(isset($_GET['delete_category'])){
-    include('delete_categories.php');
+    deleteCategories();
   }if(isset($_GET['delete_products'])){
-    include('delete_products.php');
+    deleteProducts();
   }
   if(isset($_GET['delete_users'])){
-    include('delete_users.php');
+    deleteUsers();
   }
 }else{
   echo "<div class='row'>
