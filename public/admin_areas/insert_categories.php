@@ -1,6 +1,6 @@
 <?php
     include_once __DIR__ . '/../../includes/db_connect.php';
-    include_once __DIR__ . '/../../functions/commonfunction.php';
+    include_once __DIR__ . '/../../controller/commonfunction.php';
     global $conn;
     insertCategories();
 ?>
