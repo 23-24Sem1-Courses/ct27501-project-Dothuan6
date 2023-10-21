@@ -36,12 +36,12 @@ session_start();
   if(isset($_SESSION['username'])){
     echo "
     <li class='nav-item'>
-           <a class='nav-link text-dark p-1' href='./user_areas/user_logout.php'>Đăng xuất</a>
+           <a class='nav-link text-dark p-1' href='./views/user_areas/user_logout.php'>Đăng xuất</a>
     </li>";
   }else{
     echo "
     <li class='nav-item'>
-           <a class='nav-link text-dark px-1' href='./user_areas/user_login.php'> Đăng nhập</a>
+           <a class='nav-link text-dark px-1' href='./views/user_areas/user_login.php'> Đăng nhập</a>
     </li>";
   }
   ?>
