@@ -73,42 +73,5 @@ global $conn;
 </div>
 <!-- editing products -->
 <?php
-    if(isset($_POST['edit_product'])){
-
-        $product_title = htmlspecialchars($_POST['product_title']);
-        $product_keywords = htmlspecialchars($_POST['product_keywords']);
-        $product_category= htmlspecialchars($_POST['product_category']);
-        $product_price = number_format($_POST['product_price']);
-        
-        //accessing images
-        $product_image1 = $_FILES['product_image1']['name'];
-
-    
-        //accessing image tmp name
-        $temp_image1 = $_FILES['product_image1']['tmp_name'];
-
-    
-        //checking empty
-        if(empty($product_title) or empty($product_keywords) or 
-        empty($product_category) or empty($product_price) or
-        empty($product_image1)){
-            echo "<script>alert('Please fill all the available fields')</script>";
-            exit();
-        }else{
-            move_uploaded_file($temp_image1,"./product_images/$product_image1");
-            //update query
-            $update_product="update `products` set
-            product_title=?,
-            product_keywords=?,
-            category_id = ?,
-            product_image1=?,
-            product_price=? where product_id=?";
-            $stmt = $conn->prepare($update_product);
-            $result_update = $stmt->execute([$product_title ,$product_keywords,$product_category,$product_image1,$product_price,$edit_id]);
-            if($result_update){
-                echo "<script>alert('Cập nhật thành công!')</script>";
-                echo "<script>window.open('index.php?insert_products','_self')</script>";
-            }
-        }
-    }
-    ?>
+    editProducts();
+?>
