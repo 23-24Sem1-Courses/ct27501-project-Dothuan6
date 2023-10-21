@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../../functions/commonfunction.php'; 
+include_once __DIR__ . '/../../controller/commonfunction.php'; 
 ?>
 
 <div class="row">
