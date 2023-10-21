@@ -1,6 +1,6 @@
 <?php
 include_once __DIR__ . '/../../includes/db_connect.php';
-// include_once('../functions/common_function.php');
+include_once __DIR__ . '/../../controller/commonfunction.php';
 @session_start();
 ?>
 <!DOCTYPE html>
@@ -71,36 +71,11 @@ include_once __DIR__ . '/../../includes/db_connect.php';
                             Đăng ký</a></p>
                 </form>
             </div>
-
         </div>
     </div>
 </body>
 
 </html>
 <?php
-if(isset($_POST['admin_login'])){
-    global $conn;
-    $admin_name = htmlspecialchars($_POST['admin_name']);
-    $admin_password = htmlspecialchars($_POST['admin_password']);
-    $select_query="select * from `admin` where admin_name= ? ";
-    $stmt= $conn->prepare($select_query);
-    $stmt->execute([$admin_name]); 
-    $row_count = $stmt->rowCount();
-    $row_data=$stmt ->fetch();   //cart items
-    if($row_count>0){
-        $_SESSION['admin_name'] = htmlspecialchars($admin_name);
-        if(password_verify($admin_password,$row_data['admin_password'])){
-            if($row_count==1){
-                $_SESSION['admin_name'] = htmlspecialchars($admin_name);
-                echo "<script>alert('Đăng nhập thành công!')</script>";
-                echo "<script>window.open('./index.php','_self')</script>";
-            }
-        }else{
-        echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
-}
-    }
-    else{
-        echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
-}
-}
+adminLog();
 ?>
