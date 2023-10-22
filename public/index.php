@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once __DIR__ . '/controllers/function.php';
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,51 +123,10 @@ session_start();
                         <hr>
                     </h3>
                     <div class="row px-5">
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/GLC_Mec1.png" class="card-img-top img btn" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/GLC_mec2.jpg" class="card-img-top btn img" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
 
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <a href="product_details.php"><img src="images/GLC_mec3.jpg"
-                                        class="card-img-top btn img" alt="..."></a>
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
-
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <a href="product_details.php"><img src="images/GLC_mec3.jpg"
-                                        class="card-img-top btn img" alt="..."></a>
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLD</p>
-
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-
-                            </div>
-                        </div>
-
+                        <?php
+                    getProductsGLC();
+                     ?>
                     </div>
                 </div>
             </section>
@@ -176,37 +136,7 @@ session_start();
                         <hr>
                     </h3>
                     <div class="row px-5">
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/Class_mec1.png" class="card-img-top btn img" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - Class</p>
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/Class_mec2.png" class="card-img-top btn img" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - Class</p>
-
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/Class_mec3.png" class="card-img-top btn img" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - CLASS</p>
-
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-
-                            </div>
-                        </div>
+                        <?php getProductsCLASS(); ?>
                     </div>
                 </div>
             </section>
@@ -216,45 +146,21 @@ session_start();
                         <hr>
                     </h3>
                     <div class="row px-5">
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/Maybach_mec1.jpg" class="card-img-top btn img" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - MAYBACH</p>
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/Maybach_mec2.jpg" class="card-img-top btn img" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - MAYBACH</p>
-
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0" style="width: 19rem;">
-                                <img src="images/Mayabach_mec3.jpg" class="card-img-top btn img" alt="...">
-                                <div class="card-body mt-1">
-                                    <p class="card-text btn text-center fw-bold fs-6">Mecedes - MAYBACH</p>
-
-                                </div>
-                                <span class="text-danger text-center fw-bold fs-6">3.099.000.000₫</span>
-
-                            </div>
-                        </div>
-
+                        <?php getProductsMAYBACH(); ?>
+                    </div>
+                </div>
+            </section>
+            <section class="product-section mt-3">
+                <div class="section-heading py-5">
+                    <h3 class="heading px-5">MERCEDES G-CLASS
+                        <hr>
+                    </h3>
+                    <div class="row px-5">
+                        <?php getProductsGCLASS(); ?>
                     </div>
                 </div>
             </section>
         </div>
-
-
-
     </div>
     <?php
     include_once ('../includes/footer.php');
