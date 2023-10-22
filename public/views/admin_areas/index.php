@@ -229,28 +229,7 @@
     deleteUsers();
   }
 }else{
-  echo "<div class='row'>
-          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
-          <video autoplay loop muted plays-inline>
-             <source src='../video/admin.mp4' type='video/mp4'>
-          </video>
-          </div>
-          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
-          <video autoplay loop muted plays-inline>
-             <source src='../video/admin-3.mp4' type='video/mp4'>
-          </video>
-          </div>
-          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
-          <video autoplay loop muted plays-inline>
-             <source src='../video/admin-2.mp4' type='video/mp4'>
-          </video>
-          </div>
-          <div class='col-lg-5 col-md-5 col-sm-5 px-2'>
-          <video autoplay loop muted plays-inline>
-             <source src='../video/admin-4.mp4' type='video/mp4'>
-          </video>
-          </div>
-        </div>
+  echo "Helo
 ";
 }
 ?>
