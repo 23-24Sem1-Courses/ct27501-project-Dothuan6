@@ -22,13 +22,20 @@ include_once ('header.php');
                         Tài Khoản
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../views/user_areas/user_profile.php"><i
-                                    class="fa-solid fa-user"></i> Tài Khoản</a></li>
-                        <li><a class="dropdown-item" href="../views/user_areas/user_reg.php">Đăng Ký</a></li>
+                        <li> <?php
+                        if(!isset($_SESSION['username'])){
+                            echo "<a class='dropdown-item' href='../views/user_areas/user_reg.php'>Đăng Ký</a>";
+                        }else{
+                            echo "<a class='dropdown-item' href='../views/user_areas/user_profile.php'><i
+                            class='fa-solid fa-user'></i> Tài Khoản</a>";
+                        }
+                        ?></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="../views/user_areas/user_login.php">Đăng Nhập</a></li>
+                        <li><?php if(!isset($_SESSION['username'])){
+                            echo "<a class='dropdown-item' href='../views/user_areas/user_login.php'>Đăng Nhập</a>";
+                        } ?></li>
                     </ul>
                 </li>
             </ul>
