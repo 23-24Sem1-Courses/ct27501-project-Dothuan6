@@ -104,7 +104,7 @@ include_once __DIR__ . '/../../../controller/commonfunction.php';
             <td class='bg-secondary text-light'><?php echo $product_title ?></td>
             <td class='bg-secondary text-light img'><img src='./product_images/<?php echo $product_image1 ?>'
                     class='product_images shadow'></td>
-            <td class='bg-secondary text-light'><?php echo "$product_price VND" ?></td>
+            <td class='bg-secondary text-light'><?php echo "$product_price USD" ?></td>
             <td class='bg-secondary text-light text-center'><a class='text-light'
                     href='index.php?edit_products=<?php echo $product_id ?>'><i class='fa-solid
                      fa-pen-to-square'></i></a></td>
