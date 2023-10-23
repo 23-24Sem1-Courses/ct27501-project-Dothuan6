@@ -1,5 +1,6 @@
 <?php 
 include_once ('header.php');
+include_once ('./../public/controllers/function.php');
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -38,6 +39,13 @@ include_once ('header.php');
                         } ?></li>
                     </ul>
                 </li>
+                <li class='nav-item'>
+                    <a class='nav-link text-dark' href='cart.php'>
+                        <i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item() ?><sup></a>
+                </li>
+                <?php
+                add_cart(); 
+                 ?>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
