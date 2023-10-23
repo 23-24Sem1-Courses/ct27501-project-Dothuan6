@@ -102,7 +102,7 @@ function getProductsGCLASS(){
 }
 }
 function getallProducts(){
-    $pageSize = 5;
+    $pageSize = 6;
     $startRow =0;
     if(isset($_GET['startRow']) == true) $startRow = $_GET['startRow'];
     global $conn;
@@ -133,7 +133,7 @@ function view_details(){
     global $conn;
     if(isset($_GET['product_id'])){
     if(!isset($_GET['category'])){
-          $product_id = $_GET['product_id'];
+    $product_id = $_GET['product_id'];
     $select_query = "select * from `products` where product_id = ?";
     $stmt = $conn->prepare($select_query);
     $stmt->execute([$product_id]);
@@ -168,7 +168,7 @@ function view_details(){
       Mô tả:
       </div>
       <div class='m-2'>
-      <a href='homepage.php?add_to_cart=$product_id' class='btn btn-warning'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
+      <a href='index.php?add_to_cart=$product_id' class='btn btn-warning'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
       </div>
       <div class='mt-5 m-2'>
       <a href='index.php?product_id= $product_id' class='m-2'>Quay về</a>
@@ -182,4 +182,64 @@ function view_details(){
   }
   }
   }
+    function cart_item(){
+      if(isset($_GET['add_to_cart'])){
+        global $conn;
+        $select_query = "select *from `cart_details`";
+        $stmt=$conn->prepare($select_query);
+        $stmt->execute();
+        $count_cart_items = $stmt->rowCount();
+      }else{
+        global $conn;
+        $select_query = "select *from `cart_details`";
+        $stmt=$conn->prepare($select_query);
+        $stmt->execute();
+        $count_cart_items= $stmt->rowCount();
+        }
+        echo $count_cart_items;
+      }
+      function add_cart(){
+        if(isset($_GET['add_to_cart'])){
+          global $conn;
+          $get_product_id=$_GET['add_to_cart'];
+          $select_query = "select *from `cart_details` where product_id=?";
+          $stmt= $conn->prepare($select_query);
+          $stmt->execute([$get_product_id]);
+          $num_of_rows= $stmt->rowCount();
+          if($num_of_rows>0){
+            echo "<script>alert('Sản phẩm đã có trong giỏ hàng!!')</script>";
+            echo "<script>window.open('index.php','_self')</script>";
+      
+          }else{
+            $qty = 1;
+            $insert_query = "insert into `cart_details` (product_id,quantity) values(?,?)";
+            $stmt=$conn->prepare($insert_query);
+            $stmt->execute([$get_product_id,$qty]);
+            echo "<script>alert('Đã thêm thành công vào giỏ hàng!')</script>";
+            echo "<script>window.open('index.php','_self')</script>";
+          }
+      
+        }
+      }
+      function update_delete_cart(){
+        global $conn;
+        if(isset($_POST['update_product_qty'])){
+          $update_value = $_POST['update_qty'];
+          $update_id = $_POST['update_qty_id'];
+          // echo $update_id;
+          // echo $update_value;
+          $update_qty_query="update `cart_details` set quantity =  ? where product_id = ?";
+          $stmt = $conn->prepare($update_qty_query);
+          $update_qty_query = $stmt->execute([$update_value,$update_id]);
+          if($update_qty_query){
+              echo "<script>alert('Cập nhật thành công!')</script>" ;
+          }
+      }
+      if(isset($_GET['remove'])){
+          $remove_id = $_GET['remove'];
+          $sql = "delete from `cart_details` where product_id = ?";
+          $stmt=$conn->prepare($sql);
+          $stmt ->execute([$remove_id]);
+      }
+      }
 ?>
