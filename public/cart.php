@@ -1,5 +1,6 @@
 <?php
 @session_start();
+include_once __DIR__ .'/../includes/db_connect.php';
 include_once __DIR__ . '/controllers/function.php';
 ?>
 <?php
@@ -45,12 +46,12 @@ update_delete_cart();
   if(isset($_SESSION['username'])){
     echo "
     <li class='nav-item'>
-           <a class='nav-link text-dark p-1' href='./views/user_areas/user_logout.php'>Đăng xuất</a>
+           <a class='nav-link text-dark p-1' href='views/user_areas/user_logout.php'>Đăng xuất</a>
     </li>";
   }else{
     echo "
     <li class='nav-item'>
-           <a class='nav-link text-dark px-1' href='./views/user_areas/user_login.php'> Đăng nhập</a>
+           <a class='nav-link text-dark px-1' href='views/user_areas/user_login.php'> Đăng nhập</a>
     </li>";
   }
   ?>
@@ -107,7 +108,7 @@ update_delete_cart();
                          ?>
                             <tr class='text-center'>
                                 <td><?php echo $product_title ?></td>
-                                <td><?php echo "<img class='cart_img center-block' src='./views/admin_areas/product_images/$product_image1'"?>
+                                <td><?php echo "<img class='cart_img center-block' src='/views/admin_areas/product_images/$product_image1'"?>
                                 </td>
                                 <td><?php echo "$price_table USD" ?></td>
                                 <td>
@@ -168,7 +169,7 @@ update_delete_cart();
              <div class='py-2'>
              <button class='mx-0 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a 
              href='index.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-            <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_areas/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
+            <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='/views/user_areas/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
             </div></div>";
         }
       else{
@@ -188,7 +189,7 @@ update_delete_cart();
                 <button class='mx-2 bg-info py-2 px-3 border-0  
                 bg-warning btn btn-outline' name='continue_shopping'> <a
                         href='index.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-                <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_areas/checkout.php'
+                <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href=/views/user_areas/checkout.php'
                         class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
         </div>";
         }
@@ -198,8 +199,8 @@ update_delete_cart();
 
         }if(isset($_POST['continue_shopping'])){
         echo "<script>
-        window.open('index.php', 'self')
-        </script>";
+        window.open('index.php', '_self')
+        </script>"; 
         }
         }
         }else{
@@ -215,9 +216,8 @@ update_delete_cart();
             </div>
         </div>
         </form>
-        <?php
-        include_once ('../includes/footer.php');
-     ?>
+    </div>
+    <?php include_once __DIR__ . '/../includes/footer.php' ?>
 </body>
 
 </html>
