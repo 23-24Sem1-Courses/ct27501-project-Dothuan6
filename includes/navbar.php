@@ -40,36 +40,17 @@ include_once ('./../public/controllers/function.php');
                     </ul>
                 </li>
                 <li class='nav-item'>
-                    <button class='nav-link text-dark btn' data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item() ?><sup></button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i
-                                            class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <?php include_once('cart.php') ?>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Đóng</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="cart.php" class='nav-link text-dark'>
+                        <i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item() ?><sup></a>
+
                 </li>
                 <?php
                 add_cart(); 
                  ?>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
+            <form class="d-flex" role="search" action="search_products.php" method="get">
+                <input class="form-control me-2" name="search_data" type="search" placeholder="Tìm sản phẩm..."
+                    aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </form>
