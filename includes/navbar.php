@@ -40,8 +40,29 @@ include_once ('./../public/controllers/function.php');
                     </ul>
                 </li>
                 <li class='nav-item'>
-                    <a class='nav-link text-dark' href='cart.php'>
-                        <i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item() ?><sup></a>
+                    <button class='nav-link text-dark btn' data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item() ?><sup></button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i
+                                            class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <?php include_once('cart.php') ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <?php
                 add_cart(); 
