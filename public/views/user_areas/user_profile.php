@@ -1,6 +1,6 @@
 <?php
   include_once __DIR__ . '/../../../includes/db_connect.php';
-//   include_once("../functions/common_function.php");
+  include_once __DIR__ . '/../../controllers/function.php';
   @session_start();
 ?>
 <!DOCTYPE html>
@@ -76,11 +76,9 @@
                 <?php
         if(isset($_SESSION['username'])){
             $username=$_SESSION['username'];
-
         }
       $sql="select * from `users` where user_name = ?";
       $stmt = $conn->prepare($sql);
-    //   $stmt->bindParam("user_name",$username,PDO::PARAM_STR);
       $stmt->execute([$username]);
       $result=$stmt->fetch(PDO::FETCH_ASSOC);
       ?>
@@ -101,7 +99,7 @@
     if(isset($_GET['my_orders'])){
       include('user_orders.php');
     }if(isset($_GET['delete_account'])){
-      include('delete_account.php');
+      include('user_delete.php');
     }
     ?>
         </div>
