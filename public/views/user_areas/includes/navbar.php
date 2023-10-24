@@ -17,11 +17,6 @@ include_once __DIR__ . '/../../../../includes/header.php';
                     <a class="nav-link" href="./../../all_products.php">Sản Phẩm</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i
-                        class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
         </div>
     </div>
 </nav>
