@@ -19,7 +19,7 @@ function getProductsGLC(){
           <div class='card-body mt-1 text-center'>
               <p class='card-text btn text-center fw-bold fs-6'>$product_title</p>
           </div>
-          <span class='text-danger text-center fw-bold fs-6'>$product_price VND</span>
+          <span class='text-danger text-center fw-bold fs-6'>$product_price USD</span>
 
       </div>
     </div>";
@@ -44,7 +44,7 @@ function getProductsCLASS(){
           <div class='card-body mt-1 text-center'>
               <p class='card-text btn text-center fw-bold fs-6'>$product_title</p>
           </div>
-          <span class='text-danger text-center fw-bold fs-6'>$product_price VND</span>
+          <span class='text-danger text-center fw-bold fs-6'>$product_price USD</span>
 
       </div>
     </div>";
@@ -69,7 +69,7 @@ function getProductsMAYBACH(){
           <div class='card-body mt-1 text-center'>
               <p class='card-text btn text-center fw-bold fs-6'>$product_title</p>
           </div>
-          <span class='text-danger text-center fw-bold fs-6'>$product_price VND</span>
+          <span class='text-danger text-center fw-bold fs-6'>$product_price USD</span>
 
       </div>
     </div>";
@@ -94,7 +94,7 @@ function getProductsGCLASS(){
           <div class='card-body mt-1 text-center'>
               <p class='card-text btn text-center fw-bold fs-6'>$product_title</p>
           </div>
-          <span class='text-danger text-center fw-bold fs-6'>$product_price VND</span>
+          <span class='text-danger text-center fw-bold fs-6'>$product_price USD</span>
 
       </div>
     </div>";
@@ -122,7 +122,7 @@ function getallProducts(){
           <div class='card-body mt-1 text-center'>
               <p class='card-text btn text-center fw-bold fs-6'>$product_title</p>
           </div>
-          <span class='text-danger text-center fw-bold fs-6'>$product_price VND</span>
+          <span class='text-danger text-center fw-bold fs-6'>$product_price USD</span>
 
       </div>
     </div>";
@@ -163,7 +163,7 @@ function view_details(){
       <i class='fa-regular fa-star text-warning'></i>
       <i class='fa-regular fa-star text-warning'></i>
       <i class='fa-regular fa-star text-warning'></i>
-      <div class='py-1'><h6 class='text-danger'>Giá: $product_price VND</h6></div>
+      <div class='py-1'><h6 class='text-danger'>Giá: $product_price USD</h6></div>
       <div class='row fw-bold text-dark m-2 mt-4'>
       Mô tả:
       </div>
@@ -242,4 +242,105 @@ function view_details(){
           $stmt ->execute([$remove_id]);
       }
       }
+      //searching product
+function search_products(){
+  global $conn;
+  $search_data_value = $_GET['search_data'];
+  $search_query = "select *from `products` where product_keywords like ? ";
+  $stmt = $conn->prepare($search_query);
+  $stmt->execute([$search_data_value]);
+  $row_search = $stmt->rowCount();
+  if($row_search == 0){
+    echo "<div class='alert alert-warning' role='alert'>
+    Không có sản phẩm nào được tìm thấy!
+  </div>";
+  }
+  while($row = $stmt->fetch()){
+    $product_id = $row['product_id'];
+    $product_title = $row['product_title'];
+    $product_image1 = $row['product_image1'];
+    $product_price = $row['product_price'];
+    $category_id = $row['category_id'];
+    echo "<div class='col-md-4'>
+    <div class='card border-0' style='width: 19rem;'>
+        <a href='product_details.php?product_id=$product_id'><img src='./views/admin_areas/product_images/$product_image1' class='card-img-top btn img' alt=''></a>
+        <div class='card-body mt-1 text-center'>
+            <p class='card-text btn text-center fw-bold fs-6'>$product_title</p>
+        </div>
+        <span class='text-danger text-center fw-bold fs-6'>$product_price USD</span>
+
+    </div>
+  </div>";
+  }
+}
+function deleteAccount(){
+  global $conn;
+  if(isset($_POST['delete'])){
+    $username=$_SESSION['username'];
+     $delete_query = "Delete from `users` where user_name = ?";
+     $stmt = $conn ->prepare($delete_query);
+     $result = $stmt->execute([$username]);
+     if($result){
+         session_destroy();
+         echo "<script>alert('Tài khoản đã được xóa!')</script>";
+         echo "<script>window.open('./../../index.php','_self')</script>";
+     }
+ }  
+ if(isset($_POST['dont_delete'])){
+         echo "<script>window.open('user_profile.php','_self')</script>";
+   }
+}
+function order(){
+  if(isset($_GET['user_id'])){
+    $user_id=$_GET['user_id'];
+}
+  global $conn;
+  $total_price=0;
+$cart_query_price="select * from `cart_details`";
+$stmt = $conn->prepare($cart_query_price);
+$stmt->execute();
+$invoice_number=mt_rand();
+$count_products=$stmt->rowCount();
+while($row_price=$stmt->fetchAll()){
+    foreach($row_price as $row_price){
+    $product_id=$row_price['product_id'];
+    $select_product="select *from `products` where product_id=?";
+    $stmt = $conn->prepare($select_product);
+   $stmt->execute([$product_id]);
+   while($row_product_price= $stmt->fetch()){
+    $product_price=array($row_product_price['product_price']);
+    $product_values=array_sum($product_price);
+    $total_price+=$product_values;
+   }
+}
+}
+//get quantity from cart
+$get_cart="select * from `cart_details` ";
+$stmt=$conn->prepare($get_cart);
+$stmt->execute();
+$get_item_quantity=$stmt->fetch();
+$quantity=$get_item_quantity['quantity'];
+if($quantity==0){
+    $quantity=1;
+    $subtotal=$total_price;
+}else{
+    
+    $quantity=$quantity;
+    $subtotal=$total_price*$quantity;
+}
+$time = date('Y-m-d H:i:s');
+$insert_order="insert into `user_orders` (user_id,amount_due,invoice_number,total_products,order_date) 
+values (?,?,?,?,?)";
+$stmt = $conn->prepare($insert_order);
+$result_query= $stmt->execute([$user_id,$subtotal,$invoice_number,$count_products,$time]);
+if($result_query){
+    echo "<script>alert('Bạn đã đặt hàng thành công!')</script>";
+    echo "<script>window.open('user_profile.php','_self')</script>";
+}
+
+//delete items from cart
+$empty_cart = "delete from `cart_details`";
+$stmt = $conn->prepare($empty_cart);
+$result_query= $stmt->execute();
+}
 ?>
