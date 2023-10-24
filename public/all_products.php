@@ -20,7 +20,7 @@ include_once __DIR__ . '/controllers/function.php';
     overflow: hidden;
     box-sizing: border-box;
     animation: marquee 20s linear infinite;
-    background-image: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+    /* background-image: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114)); */
     /* background-image: linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, rgba(110, 123, 251, 1) 91.1%); */
     border-radius: 5px;
     margin-bottom: 10px;
@@ -74,9 +74,9 @@ include_once __DIR__ . '/controllers/function.php';
         <!--  -->
         <div class="row">
             <div class="marquee fw-bold py-3">
-                <span><i class="fa-solid fa-tag"></i> Chào mừng bạn đến với cửa hàng của chúng tôi!</span>
+                <span><i class="fa-solid fa-tag"></i> Chào mừng bạn đến với 2T-CAR!</span>
             </div>
-            <h1 class="text-center">TẤT CẢ SẢN PHẨM</h1>
+            <h3 class="text-center">TẤT CẢ SẢN PHẨM</h3>
             <!-- slider -->
         </div>
         <div class="container">
