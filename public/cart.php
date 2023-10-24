@@ -118,8 +118,8 @@ update_delete_cart();
                                         <div class="quantity_box">
                                             <input value="<?php echo $product_qty ?>" type="number" name="update_qty"
                                                 min="1" style="width: 70px; height: 20px;margin-top: 10px;">
-                                            <input class='mx-3 bg-warning py-2 px-2 border-0 btn' value='Cập nhật'
-                                                type='submit' name='update_product_qty'>
+                                            <button class="btn text-warning" type='submit' name='update_product_qty'><i
+                                                    class="fa-solid fa-square-pen"></i></button>
                                         </div>
                                     </form>
                                 </td>
@@ -127,8 +127,9 @@ update_delete_cart();
 
                                 <td>
                                     <a href="cart.php?remove=<?php echo $product_id ?>"
-                                        class="mx-3 text-dark bg-info py-2 px-2 border-0 btn"
-                                        onclick="return confirm('Bạn chắn chắn muốn xóa sản phẩm này?')">Xóa</a>
+                                        class="mx-3 text-danger py-2 px-2 border-0 btn"
+                                        onclick="return confirm('Bạn chắn chắn muốn xóa sản phẩm này?')"><i
+                                            class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                             <?php 
@@ -167,7 +168,7 @@ update_delete_cart();
              <div class='py-2'>
              <button class='mx-0 bg-info py-2 px-3 border-0 btn btn-outline' name='continue_shopping'> <a 
              href='index.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-            <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
+            <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_areas/checkout.php?user_id=$user_id' class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
             </div></div>";
         }
       else{
@@ -187,7 +188,7 @@ update_delete_cart();
                 <button class='mx-2 bg-info py-2 px-3 border-0  
                 bg-warning btn btn-outline' name='continue_shopping'> <a
                         href='index.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-                <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_area/checkout.php'
+                <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='./user_areas/checkout.php'
                         class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
         </div>";
         }
