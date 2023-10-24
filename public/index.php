@@ -163,7 +163,7 @@ include_once __DIR__ . '/controllers/function.php';
         </div>
     </div>
     <?php
-    include_once ('../includes/footer.php');
+    include_once __DIR__ . '/../includes/footer.php';
      ?>
 </body>
 
