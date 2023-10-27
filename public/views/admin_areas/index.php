@@ -9,8 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php if(isset($_SESSION['admin_name'])){
-      echo "Quản Lý {$_SESSION['admin_name']}";
+    <title><?php if(isset($_SESSION['adminname'])){
+      echo "Quản Lý {$_SESSION['adminname']}";
     }else{
       echo "Quản Lý";
     }
@@ -121,9 +121,9 @@
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <?php
-                if(isset($_SESSION['admin_name']))
+                if(isset($_SESSION['adminname']))
                 {
-                  echo " <div class='sidebar-brand-text mx-3'>{$_SESSION['admin_name']}</div>";
+                  echo " <div class='sidebar-brand-text mx-3'>{$_SESSION['adminname']}</div>";
                 }else{
                   echo " <div class='sidebar-brand-text mx-3'>Quản Lý</div>";
                   
@@ -169,7 +169,7 @@
                     <div class="bg-dark p-4">
                         <div>
                             <h5 class="text-body-emphasis h4"><i class="fa-solid fa-people-roof"></i> Giao diện quản lý
-                                <?php if(!isset($_SESSION['admin_name'])){
+                                <?php if(!isset($_SESSION['adminname'])){
                                   echo "<a href='admin_reg.php'><button
                                   name='reg' class='btn btn-outline reg' value='Logout'>Đăng
                                   Ký</button>
@@ -177,7 +177,7 @@
                                 } ?></h5>
                         </div>
                         <?php 
-                        if(isset($_SESSION['admin_name'])){
+                        if(isset($_SESSION['adminname'])){
                           echo "<a href='admin_logout.php'><button name='logout' class='btn btn-outline' value='Logout'>Đăng
                           xuất</button>
                   </a>";
@@ -207,7 +207,7 @@
                 <div class="container-fluid mt-3">
 
                     <?php
-                    if(isset($_SESSION['admin_name'])){
+                    if(isset($_SESSION['adminname'])){
   if(isset($_GET['insert_categories'])){
     include('insert_categories.php');
   }
