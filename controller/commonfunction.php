@@ -103,7 +103,7 @@ function deleteUsers(){
         $result_users=$stmt->execute([$delete_id]);
         if($result_users){
             echo "<script>alert('Xóa thành công!')</script>";
-            echo "<script>window.open('./index.php?insert_products','_self')</script>";
+            echo "<script>window.open('./index.php?view_users','_self')</script>";
         }
     } 
 }
@@ -163,68 +163,115 @@ function editCat(){
         }
     }
 }
-function adminLog(){
-    if(isset($_POST['admin_login'])){
-        global $conn;
-        $admin_name = htmlspecialchars($_POST['admin_name']);
-        $admin_password = htmlspecialchars($_POST['admin_password']);
-        $select_query="select * from `admin` where admin_name= ? ";
-        $stmt= $conn->prepare($select_query);
-        $stmt->execute([$admin_name]); 
-        $row_count = $stmt->rowCount();
-        $row_data=$stmt ->fetch();   //cart items
-        if($row_count>0){
-            $_SESSION['admin_name'] = htmlspecialchars($admin_name);
-            if(password_verify($admin_password,$row_data['admin_password'])){
-                if($row_count==1){
-                    $_SESSION['admin_name'] = htmlspecialchars($admin_name);
-                    echo "<script>alert('Đăng nhập thành công!')</script>";
-                    echo "<script>window.open('./index.php','_self')</script>";
-                }
-            }else{
-            echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
+function userLog(){
+    if(isset($_POST['user_login'])){
+      global $conn;
+      $user_username = htmlspecialchars($_POST['user_username']);
+      $user_usermail = htmlspecialchars($_POST['user_username']);
+      $user_password = htmlspecialchars($_POST['user_password']);
+      if(!empty($_POST['user_admin_code'])){
+      $user_code_admin = htmlspecialchars($_POST['user_admin_code']);
+      $select_query="select * from `users` where user_name=? and user_code_admin = ?";
+      $stmt = $conn->prepare($select_query);
+      $stmt->execute([$user_username,$user_code_admin]);
+      $row_count = $stmt-> rowCount();
+      $row_data=$stmt->fetch(PDO::FETCH_ASSOC);
+      if($row_count>0){
+          $_SESSION['adminname'] = htmlspecialchars($user_username);
+          if(password_verify($user_password,$row_data['user_password'])){
+              if($row_count==1){
+                  $_SESSION['adminname'] = htmlspecialchars($user_username);
+                  echo "<script>alert('Đăng nhập quản lý thành công!')</script>";
+                  echo "<script>window.open('index.php','_self')</script>";
+              }else{
+                  echo "<script>alert('Đăng nhập quản lý không thành công')</script>";
+                  echo "<script>window.open('./../admin_areas/admin_log.php','_self')</script>";
+          }
+          }
+          else{
+              echo "<script>alert('Mật khẩu tên hoặc mã quản lý không đúng!')</script>";
+      }
+     
+  }
+  else{
+      echo "<script>alert('Mật khẩu tên hoặc mã quản lý không đúng!')</script>";
+  }
+  }else{
+    echo "<script>alert('Đăng nhập quản lý cần phải có mã quản lý!')</script>";
+    echo "<script>window.open('./../admin_areas/admin_log.php','_self')</script>";
+  }
     }
-        }
-        else{
-            echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
-        }
-    }
-}
-function adminReg(){
+  }
+function userReg(){
     if(isset($_POST['Register'])){
-        global $conn;
-        $user_username = $_POST['user_username'];
-        $email = $_POST['user_email'];
-        $user_password = $_POST['user_password'];
-        $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
-        $conf_user_password= $_POST['conf_user_password'];
-    $select_query = "select * from `admin` where admin_name=? or admin_email= ? ";
-    $stmt = $conn -> prepare($select_query);
-    $stmt->execute([$user_username,$email]);
-    $row_count = $stmt->rowCount();
-    if($row_count>0){
-        echo "<script>alert('Tên hoặc email đã tồn tại')</script>";
-    }else{
-     //checking empty
-        if(empty($user_username) or empty($email) or empty($user_password) or 
-        empty($conf_user_password)){
-            echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
-            exit();
-        }else if($user_password != $conf_user_password){
-            echo "<script>alert('Mật khẩu nhập lại cần phải trùng khớp với mật khẩu!')</script>";
-            exit();
-        }else{
-          
-         //insert query
-            $insert_user = "insert into `admin` (admin_name,
-            admin_email,admin_password) values (?,?,?)";
-            $stmt= $conn->prepare($insert_user);
-            $result_query = $stmt->execute([$user_username,$email,$hash_password]);
-            if($result_query){
-                echo "<script>alert('Bạn đã đăng ký quản lý thành công!')</script>";
-                echo "<script>window.open('admin_log.php','_self')</script>";
-            }
-        }
-}
-    }
-}
+      global $conn;
+      $user_username = htmlspecialchars($_POST['user_username']);
+      $email = htmlspecialchars($_POST['user_email']);
+      $user_password = htmlspecialchars($_POST['user_password']);
+      $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
+      $conf_user_password= htmlspecialchars($_POST['conf_user_password']);
+      $user_address = htmlspecialchars($_POST['user_address']);
+      $user_phone = htmlspecialchars($_POST['user_phone']);
+      if(!empty($_POST['user_code_admin'])){
+      $user_code_admin = htmlspecialchars($_POST['user_code_admin']);
+  //select_query
+  $select_query = "select * from `users` where user_email= ? or user_code_admin = ?";
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute([$email,$user_code_admin]);
+  $row_count = $stmt -> rowCount();
+  if($row_count>0){
+      echo "<script>alert('Email hoặc mã quản lý đã tồn tại')</script>";
+  }else{
+   //checking empty
+      if(empty($user_username) or empty($email) or empty($user_password) or 
+      empty($conf_user_password) or empty($user_address) or empty($user_phone)){
+          echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
+          exit();
+      }else if($user_password != $conf_user_password){
+          echo "<script>alert('Mật khẩu nhập lại cần phải trùng khớp với mật khẩu!')</script>";
+          exit();
+      }else{
+       //insert query
+          $insert_user = "insert into `users` (user_name,
+          user_password,user_email,
+          user_phone,user_address,user_code_admin) values (?,?,?,?,?,?)";
+          $stmt=$conn->prepare($insert_user);
+          $result = $stmt->execute([$user_username,$hash_password,$email,$user_phone,$user_address,$user_code_admin]); 
+          if($result){
+              echo "<script>alert('Bạn đã đăng ký quản lý thành công!')</script>";
+              echo "<script>window.open('./../admin_areas/admin_log.php','_self')</script>";
+          }
+      }
+  }
+  }else{
+    $select_query = "select * from `users` where user_email= ? ";
+  $stmt = $conn->prepare($select_query);
+  $stmt->execute([$email]);
+  $row_count = $stmt -> rowCount();
+  if($row_count>0){
+      echo "<script>alert('Email đã tồn tại')</script>";
+  }else{
+   //checking empty
+      if(empty($user_username) or empty($email) or empty($user_password) or 
+      empty($conf_user_password) or empty($user_address) or empty($user_phone)){
+          echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
+          exit();
+      }else if($user_password != $conf_user_password){
+          echo "<script>alert('Mật khẩu nhập lại cần phải trùng khớp với mật khẩu!')</script>";
+          exit();
+      }else{
+       //insert query
+          $insert_user = "insert into `users` (user_name,
+          user_password,user_email,
+          user_phone,user_address) values (?,?,?,?,?)";
+          $stmt=$conn->prepare($insert_user);
+          $result = $stmt->execute([$user_username,$hash_password,$email,$user_phone,$user_address]); 
+          if($result){
+              echo "<script>alert('Bạn đã đăng ký thành viên thành công!')</script>";
+              echo "<script>window.open('./../../views/user_areas/user_login.php','_self')</script>";
+          }
+      }
+  }
+  }
+  }
+  }
