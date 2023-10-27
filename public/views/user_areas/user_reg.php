@@ -1,6 +1,6 @@
 <?php
   include_once __DIR__ . '/../../../includes/db_connect.php';
-//   include_once('../functions/common_function.php');
+  include_once __DIR__ . '/../../controllers/function.php';
   @session_start();
 ?>
 <!DOCTYPE html>
@@ -10,21 +10,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký</title>
-    <!-- css link bstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
-    <!-- font aware cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- css style link -->
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet"
-        href="./startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css">
-
-    <link rel="stylesheet" href="./style.css">
     <style>
     .btn {
         transition: transform 0.3s ease-in-out !important;
@@ -49,6 +34,7 @@
 </head>
 
 <body>
+    <?php include_once __DIR__ . '/../../../includes/header.php' ?>
 
     <form class="w-50 mt-3 border border-2 m-auto reg_form" action="" method="post" enctype="multipart/form-data">
         <h1 class="text-center text-primary py-3">Đăng ký thành viên mới</h1>
@@ -142,45 +128,5 @@
 
 </html>
 <?php
-
-    if(isset($_POST['Register'])){
-        global $conn;
-        $user_username = htmlspecialchars($_POST['user_username']);
-        $email = htmlspecialchars($_POST['user_email']);
-        $user_password = htmlspecialchars($_POST['user_password']);
-        $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
-        $conf_user_password= htmlspecialchars($_POST['conf_user_password']);
-        $user_address = htmlspecialchars($_POST['user_address']);
-        $user_phone = htmlspecialchars($_POST['user_phone']);
-
-    //select_query
-    $select_query = "select * from `users` where user_name= ? or user_email= ? ";
-    $stmt = $conn->prepare($select_query);
-    $stmt->execute([$user_username,$email]);
-    $row_count = $stmt -> rowCount();
-    if($row_count>0){
-        echo "<script>alert('Tên hoặc email đã tồn tại')</script>";
-    }else{
-     //checking empty
-        if(empty($user_username) or empty($email) or empty($user_password) or 
-        empty($conf_user_password) or empty($user_address) or empty($user_phone)){
-            echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
-            exit();
-        }else if($user_password != $conf_user_password){
-            echo "<script>alert('Mật khẩu nhập lại cần phải trùng khớp với mật khẩu!')</script>";
-            exit();
-        }else{
-         //insert query
-            $insert_user = "insert into `users` (user_name,
-            user_password,user_email,
-            user_phone,user_address) values (?,?,?,?,?)";
-            $stmt=$conn->prepare($insert_user);
-            $result = $stmt->execute([$user_username,$hash_password,$email,$user_phone,$user_address]); 
-            if($result){
-                echo "<script>alert('Bạn đã đăng ký thành viên thành công!')</script>";
-                echo "<script>window.open('user_login.php','_self')</script>";
-            }
-        }
-    }
-    }
-    ?>
+userReg();
+?>
