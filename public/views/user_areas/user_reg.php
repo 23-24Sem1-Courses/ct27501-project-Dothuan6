@@ -44,7 +44,7 @@
                 <!-- username -->
                 <div class="input-group has-validation">
                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                    <div class="form-floating is-invalid">
+                    <div class="form-floating">
                         <input autocomplete="off" name="user_username" type="text" class="form-control"
                             id="user_username" placeholder="Username" required>
                         <label for="user_username">Tên</label>
@@ -54,9 +54,9 @@
                     </div>
                 </div>
                 <!-- email -->
-                <div class="input-group has-validation">
+                <div class="input-group has-validation mt-2">
                     <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                    <div class="form-floating is-invalid">
+                    <div class="form-floating">
                         <input name="user_email" type="text" class="form-control" id="floatingInputGroup2"
                             placeholder="Email" required>
                         <label for="floatingInputGroup2">Email</label>
@@ -66,9 +66,9 @@
                     </div>
                 </div>
                 <!-- Pass -->
-                <div class="input-group has-validation">
+                <div class="input-group has-validation mt-2">
                     <span class="input-group-text"><i class="fa-solid fa-eye"></i></span>
-                    <div class="form-floating is-invalid">
+                    <div class="form-floating">
                         <input name="user_password" type="password" class="form-control" id="floatingInputGroup2"
                             placeholder="Password" required>
                         <label for="floatingInputGroup2">Mật khẩu</label>
@@ -78,9 +78,9 @@
                     </div>
                 </div>
                 <!-- confirm pass -->
-                <div class="input-group has-validation">
+                <div class="input-group has-validation mt-2">
                     <span class="input-group-text"><i class="fa-regular fa-eye"></i></span>
-                    <div class="form-floating is-invalid">
+                    <div class="form-floating">
                         <input name="conf_user_password" type="password" class="form-control" id="floatingInputGroup2"
                             placeholder="Password" required>
                         <label for="floatingInputGroup2">Xác nhận mật khẩu</label>
@@ -90,9 +90,9 @@
                     </div>
                 </div>
                 <!-- address -->
-                <div class="input-group has-validation">
+                <div class="input-group has-validation mt-2">
                     <span class="input-group-text"><i class="fa-solid fa-location-pin"></i></span>
-                    <div class="form-floating is-invalid">
+                    <div class="form-floating">
                         <input name="user_address" type="text" class="form-control" id="floatingInputGroup2"
                             placeholder="Address" required>
                         <label for="floatingInputGroup2">Địa chỉ</label>
@@ -102,15 +102,26 @@
                     </div>
                 </div>
                 <!-- mobile -->
-                <div class="input-group has-validation">
+                <div class="input-group has-validation mt-2">
                     <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-                    <div class="form-floating is-invalid">
+                    <div class="form-floating">
                         <input name="user_phone" type="text" class="form-control" id="floatingInputGroup2"
                             placeholder="Contact" required>
                         <label for="floatingInputGroup2">Liên hệ</label>
                     </div>
                     <div class="invalid-feedback">
                         Nhập vào số điện thoại.
+                    </div>
+                </div>
+                <div class="input-group has-validation mt-2">
+                    <span class="input-group-text"><i class="fa-solid fa-code-merge"></i></span>
+                    <div class="form-floating">
+                        <input name="user_code_admin" type="text" class="form-control" id="floatingInputGroup2"
+                            placeholder="Contact">
+                        <label for="floatingInputGroup2">Mã Quản Lý</label>
+                    </div>
+                    <div class="invalid-feedback">
+                        Nhập vào mã quản lý
                     </div>
                 </div>
                 <!--  -->
