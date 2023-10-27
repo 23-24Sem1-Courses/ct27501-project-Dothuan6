@@ -343,4 +343,80 @@ $empty_cart = "delete from `cart_details`";
 $stmt = $conn->prepare($empty_cart);
 $result_query= $stmt->execute();
 }
+function userLog(){
+  if(isset($_POST['user_login'])){
+    global $conn;
+    $user_username = htmlspecialchars($_POST['user_username']);
+    $user_usermail = htmlspecialchars($_POST['user_username']);
+    $user_password = htmlspecialchars($_POST['user_password']);
+    $select_query="select * from `users` where user_name=?";
+    $stmt = $conn->prepare($select_query);
+    $stmt->execute([$user_username]);
+    $row_count = $stmt-> rowCount();
+    $row_data=$stmt->fetch(PDO::FETCH_ASSOC);
+    if($row_count>0){
+        $_SESSION['username'] = htmlspecialchars($user_username);
+        if(password_verify($user_password,$row_data['user_password'])){
+            if($row_count==1){
+                $_SESSION['username'] = htmlspecialchars($user_username);
+                echo "<script>alert('Đăng nhập thành công!')</script>";
+                echo "<script>window.open('user_profile.php','_self')</script>";
+            }else{
+                $_SESSION['username'] = htmlspecialchars($user_username);
+                echo "<script>alert('Đăng nhập thành công')</script>";
+                echo "<script>window.open('user_profile.php','_self')</script>";
+        }
+        }
+        else{
+            echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
+    }
+   
+}
+else{
+    echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
+}
+}
+}
+function userReg(){
+  if(isset($_POST['Register'])){
+    global $conn;
+    $user_username = htmlspecialchars($_POST['user_username']);
+    $email = htmlspecialchars($_POST['user_email']);
+    $user_password = htmlspecialchars($_POST['user_password']);
+    $hash_password = password_hash($user_password,PASSWORD_DEFAULT);
+    $conf_user_password= htmlspecialchars($_POST['conf_user_password']);
+    $user_address = htmlspecialchars($_POST['user_address']);
+    $user_phone = htmlspecialchars($_POST['user_phone']);
+
+//select_query
+$select_query = "select * from `users` where user_name= ? or user_email= ? ";
+$stmt = $conn->prepare($select_query);
+$stmt->execute([$user_username,$email]);
+$row_count = $stmt -> rowCount();
+if($row_count>0){
+    echo "<script>alert('Tên hoặc email đã tồn tại')</script>";
+}else{
+ //checking empty
+    if(empty($user_username) or empty($email) or empty($user_password) or 
+    empty($conf_user_password) or empty($user_address) or empty($user_phone)){
+        echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
+        exit();
+    }else if($user_password != $conf_user_password){
+        echo "<script>alert('Mật khẩu nhập lại cần phải trùng khớp với mật khẩu!')</script>";
+        exit();
+    }else{
+     //insert query
+        $insert_user = "insert into `users` (user_name,
+        user_password,user_email,
+        user_phone,user_address) values (?,?,?,?,?)";
+        $stmt=$conn->prepare($insert_user);
+        $result = $stmt->execute([$user_username,$hash_password,$email,$user_phone,$user_address]); 
+        if($result){
+            echo "<script>alert('Bạn đã đăng ký thành viên thành công!')</script>";
+            echo "<script>window.open('user_login.php','_self')</script>";
+        }
+    }
+}
+}
+}
 ?>
