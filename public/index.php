@@ -9,9 +9,18 @@ include_once __DIR__ . '/controllers/function.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+    .card .img {
+        transition: transform 0.3s ease-in-out !important;
+        transition-timing-function: ease !important;
+        transition-delay: 0s !important;
+    }
+
+    .card .img:hover {
+        transform: translateY(-10px) !important;
+    }
+    </style>
 </head>
 
 <body>
@@ -25,26 +34,7 @@ include_once __DIR__ . '/controllers/function.php';
             <ul class="navbar-nav me-auto py-2 ">
 
                 <?php 
-  if(isset($_SESSION['username'])){
-    echo "<li class='nav-item p-0'>
-          <a class='nav-link text-dark p-1' href='index.php'>Xin chào {$_SESSION['username']} &rang;</a>
-          </li>";
-  }else{
-    echo "<li class='nav-item'>
-    <a class='nav-link text-dark' href='index.php'><i class='fa-regular fa-user'></i> </a>
-    </li>";
-  }
-  if(isset($_SESSION['username'])){
-    echo "
-    <li class='nav-item'>
-           <a class='nav-link text-dark p-1' href='./views/user_areas/user_logout.php'>Đăng xuất</a>
-    </li>";
-  }else{
-    echo "
-    <li class='nav-item'>
-           <a class='nav-link text-dark px-1' href='./views/user_areas/user_login.php'> Đăng nhập</a>
-    </li>";
-  }
+ include_once __DIR__ . '/../includes/navbar_nav.php';
   ?>
             </ul>
         </nav>
@@ -123,10 +113,7 @@ include_once __DIR__ . '/controllers/function.php';
                         <hr>
                     </h3>
                     <div class="row px-5">
-
-                        <?php
-                    getProductsGLC();
-                     ?>
+                        <?php getProductsGLC(); ?>
                     </div>
                 </div>
             </section>
