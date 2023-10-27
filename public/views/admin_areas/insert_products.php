@@ -93,7 +93,7 @@ include_once __DIR__ . '/../../../controller/commonfunction.php';
         // $result = mysqli_query($con,$get_products);
         $number=0;
         while($row=$stmt->fetch()){
-            $product_id=$row['product_id'];
+            $product_id=$row['product_id']; 
             $product_title=$row['product_title'];
             $product_image1=$row['product_image1'];
             $product_price=$row['product_price'];
