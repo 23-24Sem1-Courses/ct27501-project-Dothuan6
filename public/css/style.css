@@ -10,3 +10,22 @@
     width: 100%;
     height: 650px;
 }
+.marquee {
+    width: 10% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    animation: marquee 20s linear infinite !important;
+    border-radius: 5px !important;
+    margin-bottom: 10px !important;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%) !important;
+    }
+
+    100% {
+        transform: translateX(-100%) !important;
+    }
+}
