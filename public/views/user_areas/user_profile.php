@@ -96,12 +96,12 @@
         <div class="col-md-10 text-center">
             <?php
     // get_user_oder_details();
-    if(isset($_GET['my_orders'])){
-      include('user_orders.php');
-    }if(isset($_GET['delete_account'])){
-      include('user_delete.php');
-    }
-    ?>
+            if(isset($_GET['my_orders'])){
+            include('user_orders.php');
+            }if(isset($_GET['delete_account'])){
+            include('user_delete.php');
+            }
+            ?>
         </div>
         <?php
     include_once __DIR__ . '/../../../includes/footer.php'; 
