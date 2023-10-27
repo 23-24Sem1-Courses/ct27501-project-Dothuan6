@@ -1,6 +1,6 @@
 <?php
 include_once __DIR__ . '/../../../includes/db_connect.php';
-// include_once('../functions/common_function.php');
+include_once __DIR__ . '/../../controllers/function.php';
 @session_start();
 ?>
 <!DOCTYPE html>
@@ -10,25 +10,10 @@ include_once __DIR__ . '/../../../includes/db_connect.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập</title>
-    <!-- css link bstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
-    <!-- font aware cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- css style link -->
-    <link rel="stylesheet" href="../style.css">
-    <!-- <style>
-        body{
-            overflow-x: hidden;
-        }
-     </style> -->
 </head>
 
 <body>
+    <?php include_once __DIR__ . '/../../../includes/header.php' ?>
     <div class="container-fluid my-3 m-auto w-50 py-2 border">
         <h2 class="text-center py-3 text-primary">Đăng nhập thành viên</h2>
         <div class="row d-flex align-items-center justify-content-center">
@@ -61,42 +46,5 @@ include_once __DIR__ . '/../../../includes/db_connect.php';
 
 </html>
 <?php
-if(isset($_POST['user_login'])){
-    global $conn;
-    $user_username = htmlspecialchars($_POST['user_username']);
-    $user_usermail = htmlspecialchars($_POST['user_username']);
-    $user_password = htmlspecialchars($_POST['user_password']);
-    $select_query="select * from `users` where user_name=?";
-    $stmt = $conn->prepare($select_query);
-    $stmt->execute([$user_username]);
-    $row_count = $stmt-> rowCount();
-    $row_data=$stmt->fetch(PDO::FETCH_ASSOC);
-    // $row_data['user_password'];
-
-    //cart items
-    // $select_query_cart="select * from `cart_details` where ip_address ='$user_ip'";
-    // $select_cart = mysqli_query($con,$select_query_cart);
-    // $row_count_cart = mysqli_num_rows($select_cart);
-    if($row_count>0){
-        $_SESSION['username'] = htmlspecialchars($user_username);
-        if(password_verify($user_password,$row_data['user_password'])){
-            if($row_count==1){
-                $_SESSION['username'] = htmlspecialchars($user_username);
-                echo "<script>alert('Đăng nhập thành công!')</script>";
-                echo "<script>window.open('user_profile.php','_self')</script>";
-            }else{
-                $_SESSION['username'] = htmlspecialchars($user_username);
-                echo "<script>alert('Đăng nhập thành công')</script>";
-                echo "<script>window.open('user_profile.php','_self')</script>";
-        }
-        }
-        else{
-            echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
-    }
-   
-}
-else{
-    echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
-}
-}
+userLog();
 ?>
