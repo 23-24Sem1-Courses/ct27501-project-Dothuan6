@@ -20,6 +20,10 @@ include_once __DIR__ . '/controllers/function.php';
     .card .img:hover {
         transform: translateY(-10px) !important;
     }
+
+    .img_slide {
+        height: 700px;
+    }
     </style>
 </head>
 
@@ -32,10 +36,9 @@ include_once __DIR__ . '/controllers/function.php';
         <!-- second child -->
         <nav class="navbar-expand-lg navbar-dark text-dark px-3" style="display: block;">
             <ul class="navbar-nav me-auto py-2 ">
-
                 <?php 
- include_once __DIR__ . '/../includes/navbar_nav.php';
-  ?>
+                include_once __DIR__ . '/../includes/navbar_nav.php';
+                ?>
             </ul>
         </nav>
         <!--  -->
