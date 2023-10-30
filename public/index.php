@@ -63,7 +63,7 @@ include_once __DIR__ . '/controllers/function.php';
                         <div class=" carousel-item active">
                             <img src="images/slider1.jpg" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>MECEDES BEN</h5>
+                                <h5>MERCEDES BEN</h5>
                                 <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
                                     tiết </a>
                             </div>
@@ -71,7 +71,7 @@ include_once __DIR__ . '/controllers/function.php';
                         <div class="carousel-item">
                             <img src="images/slider2.webp" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>SMECEDES BEN</h5>
+                                <h5>MERCEDES BEN</h5>
                                 <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
                                     tiết </a>
 
@@ -80,7 +80,7 @@ include_once __DIR__ . '/controllers/function.php';
                         <div class="carousel-item">
                             <img src="images/slider1.jpg" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>MECEDES BEN</h5>
+                                <h5>MERCEDES BEN</h5>
                                 <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
                                     tiết </a>
 
@@ -89,7 +89,7 @@ include_once __DIR__ . '/controllers/function.php';
                         <div class="carousel-item">
                             <img src="images/slider2.webp" class="d-block w-100 img_slide" alt="ảnh">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>SMECEDES BEN</h5>
+                                <h5>MERCEDES BEN</h5>
                                 <a href="all_products.php" class="text-light" style="text-decoration: none;">Xem chi
                                     tiết </a>
 
