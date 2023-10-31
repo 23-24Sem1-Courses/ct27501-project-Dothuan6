@@ -46,7 +46,7 @@
             <td class='bg-secondary text-light text-center'><a class='text-light'
                     href='index.php?edit_category=<?php echo $category_id ?>'><i class='fa-solid
             fa-pen-to-square'></i></a></td>
-            <td class='bg-secondary text-light'><a onclick='return confirm("Bạn chắn chắn muốn xóa sản phẩm này?")'
+            <td class='bg-secondary text-light'><a onclick='return confirm("Bạn chắn chắn muốn xóa danh mục phẩm này?")'
                     class='text-light' href='index.php?delete_category=<?php echo $category_id ?> '><i class='fa-solid
             fa-trash'></i></a></td>
         </tr>
