@@ -21,26 +21,6 @@ include_once __DIR__ . '/controllers/function.php';
 .card .img:hover {
     transform: translateY(-10px) !important;
 }
-
-.marquee {
-    width: 10%;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-    animation: marquee 20s linear infinite;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
 </style>
 
 <body>
@@ -59,9 +39,6 @@ include_once __DIR__ . '/controllers/function.php';
         </nav>
         <!--  -->
         <div class="row">
-            <div class="marquee fw-bold py-3">
-                <span><i class="fa-solid fa-tag"></i> Chào mừng bạn đến với 2T-CAR!</span>
-            </div>
             <h3 class="text-center">TẤT CẢ SẢN PHẨM</h3>
         </div>
         <div class="container">
