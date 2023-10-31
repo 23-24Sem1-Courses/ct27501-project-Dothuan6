@@ -229,7 +229,9 @@
     deleteUsers();
   }
 }else{
-  echo "Helo
+  echo "<div class='alert alert-warning' role='alert'>
+  Bạn vui lòng đăng nhập để sử dụng các chức năng của quản lý!
+</div>
 ";
 }
 ?>
