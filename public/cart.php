@@ -168,7 +168,7 @@ include_once __DIR__ . '/../includes/navbar_nav.php';
                 <button class='mx-2 bg-info py-2 px-3 border-0  
                 bg-warning btn btn-outline' name='continue_shopping'> <a
                         href='index.php' class='text-dark' style='text-decoration: none;'>Mua sắm</a></button>
-                <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href=/views/user_areas/checkout.php'
+                <button class='mx-2 bg-secondary py-2 px-3 border-0 btn btn-outline'> <a href='/views/user_areas/checkout.php'
                         class='text-light' style='text-decoration: none;'>Thanh toán</a></button>
         </div>";
         }
