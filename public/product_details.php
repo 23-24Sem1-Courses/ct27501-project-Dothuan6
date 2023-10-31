@@ -11,27 +11,6 @@ include_once __DIR__ . '/controllers/function.php';
     <title>Trang Chủ</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<style>
-.marquee {
-    width: 10%;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-    animation: marquee 20s linear infinite;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-</style>
 
 <body>
     <div class="container-fluid">
@@ -46,10 +25,7 @@ include_once __DIR__ . '/controllers/function.php';
             </ul>
         </nav>
         <div class="row">
-            <div class="marquee fw-bold py-3">
-                <span><i class="fa-solid fa-tag"></i> Xem Chi Tiết Sản Phẩm!</span>
-            </div>
-            <h1 class="text-center">CHI TIẾT SẢN PHẨM</h1>
+            <h3 class="text-center">CHI TIẾT SẢN PHẨM</h3>
         </div>
         <div class="container">
             <div class="row">
