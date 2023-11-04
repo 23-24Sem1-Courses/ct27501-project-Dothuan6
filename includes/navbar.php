@@ -39,6 +39,9 @@ include_once ('./../public/controllers/function.php');
                         } ?></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.php">Liên Hệ</a>
+                </li>
                 <li class='nav-item'>
                     <a href="cart.php" class='nav-link text-dark'>
                         <i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item() ?><sup></a>
