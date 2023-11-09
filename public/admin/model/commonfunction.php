@@ -164,7 +164,7 @@ function editCat(){
     }
 }
 function userLog(){
-    if(isset($_POST['user_login'])){
+    if(isset($_POST['admin_login'])){
       global $conn;
       $user_username = htmlspecialchars($_POST['user_username']);
       $user_usermail = htmlspecialchars($_POST['user_username']);
