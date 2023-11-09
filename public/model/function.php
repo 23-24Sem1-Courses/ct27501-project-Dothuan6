@@ -355,10 +355,13 @@ function userLog(){
     $stmt = $conn->prepare($select_query);
     $stmt->execute([$user_username,$user_code_admin]);
     $row_count = $stmt-> rowCount();
-    $row_data=$stmt->fetch(PDO::FETCH_ASSOC);
+    $row_data=$stmt->fetchAll();
+    foreach($row_data as $row_data){
+    $password = $row_data['user_password'];
+    }
     if($row_count>0){
-        $_SESSION['username'] = htmlspecialchars($user_username);
-        if(password_verify($user_password,$row_data['user_password'])){
+        // $_SESSION['username'] = htmlspecialchars($user_username);
+        if(password_verify($user_password,$password)==true){
             if($row_count==1){
                 $_SESSION['username'] = htmlspecialchars($user_username);
                 echo "<script>alert('Đăng nhập quản lý thành công!')</script>";
@@ -372,7 +375,6 @@ function userLog(){
         else{
             echo "<script>alert('Mật khẩu tên hoặc mã quản lý không đúng!')</script>";
     }
-   
 }
 else{
     echo "<script>alert('Mật khẩu tên hoặc mã quản lý không đúng!')</script>";
@@ -388,17 +390,17 @@ else{
     $row_count = $stmt-> rowCount();
     $row_data=$stmt->fetch(PDO::FETCH_ASSOC);
     if($row_count>0){
-        $_SESSION['username'] = htmlspecialchars($user_username);
+        // $_SESSION['username'] = htmlspecialchars($user_username);
         if(password_verify($user_password,$row_data['user_password'])){
             if($row_count==1){
-                $_SESSION['username'] = htmlspecialchars($user_username);
+                $_SESSION['username'] = $user_username;
                 echo "<script>alert('Đăng nhập thành công!')</script>";
                 echo "<script>window.open('user_profile.php','_self')</script>";
             }else{
-                $_SESSION['username'] = htmlspecialchars($user_username);
-                echo "<script>alert('Đăng nhập thành công')</script>";
-                echo "<script>window.open('user_profile.php','_self')</script>";
-        }
+              $_SESSION['username'] = $user_username;
+              echo "<script>alert('Đăng nhập thành công')</script>";
+              echo "<script>window.open('user_profile.php','_self')</script>";
+      }
         }
         else{
             echo "<script>alert('Mật khẩu hoặc tên không đúng!')</script>";
@@ -425,19 +427,19 @@ function userReg(){
     if(!empty($_POST['user_code_admin'])){
     $user_code_admin = htmlspecialchars($_POST['user_code_admin']);
 //select_query
-$select_query = "select * from `users` where user_email= ? ";
+$select_query = "select * from `users` where user_email=? or user_name=?";
 $stmt = $conn->prepare($select_query);
-$stmt->execute([$email]);
+$stmt->execute([$email,$user_username]);
 $row_count = $stmt -> rowCount();
 if($row_count>0){
-    echo "<script>alert('Email đã tồn tại')</script>";
+    echo "<script>alert('Tên hoặc Email đã tồn tại!')</script>";
 }else{
  //checking empty
     if(empty($user_username) or empty($email) or empty($user_password) or 
     empty($conf_user_password) or empty($user_address) or empty($user_phone)){
         echo "<script>alert('Vui lòng điền đầy đủ thông tin!')</script>";
         exit();
-    }else if($user_password != $conf_user_password){
+    }elseif($user_password != $conf_user_password){
         echo "<script>alert('Mật khẩu nhập lại cần phải trùng khớp với mật khẩu!')</script>";
         exit();
     }else{
@@ -454,12 +456,12 @@ if($row_count>0){
     }
 }
 }else{  
-  $select_query = "select * from `users` where user_email= ? ";
+  $select_query = "select * from `users` where user_email= ? or user_name=? ";
 $stmt = $conn->prepare($select_query);
-$stmt->execute([$email]);
+$stmt->execute([$email,$user_username]);
 $row_count = $stmt -> rowCount();
 if($row_count>0){
-    echo "<script>alert('Email đã tồn tại')</script>";
+    echo "<script>alert('Tên hoặc Email đã tồn tại!')</script>";
 }else{
  //checking empty
     if(empty($user_username) or empty($email) or empty($user_password) or 
