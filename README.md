@@ -2,13 +2,13 @@
 
 Học kỳ 1, Năm học 2023-2024
 
-**MSSV 1** : B2014710
+**MSSV 1** : B2014705
 
-**Họ tên SV 1**: Lê Thị Huyền Trân
+**Họ tên SV 1**: Đỗ Văn Thuận
 
-**MSSV 2**: B2014705
+**MSSV 2**: B2014710
 
-**Họ tên SV 2**: Đỗ Văn Thuận
+**Họ tên SV 2**: Lê Thị Huyền Trân
 
 **Lớp học phần**: CT275-01
 
