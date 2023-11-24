@@ -17,7 +17,7 @@ require './../PHPMailer/src/PHPMailer.php';
 require './../PHPMailer/src/SMTP.php';
 
 //Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
+$mail = new PHPMailer(      );
 
 try {
     //Server settings

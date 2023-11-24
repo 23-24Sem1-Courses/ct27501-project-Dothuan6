@@ -171,7 +171,7 @@ function view_details(){
       <a href='index.php?add_to_cart=$product_id' class='btn btn-warning'>Thêm vào <i class='fa-solid fa-cart-shopping'></i></a>
       </div>
       <div class='mt-5 m-2'>
-      <a href='index.php?product_id= $product_id' class='m-2'>Quay về</a>
+      <a href='all_products.php?product_id= $product_id' class='m-2'>Quay về</a>
       </div>  
   
       </div>
